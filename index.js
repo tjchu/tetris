@@ -310,7 +310,7 @@ function handleKeyPress(event) {
     case 38: // up arrow
       rotateTetromino();
       break;
-    case 32: // up arrow
+    case 32: // space bar
       dropTetromino();
       break;
     default:
