@@ -2,20 +2,19 @@
 const BOARD_WIDTH = 10;
 const BOARD_HEIGHT = 20;
 const board = [];
-//const bgm = document.createElement("audio");
-//const breakSound = document.createElement("audio");
-//const drop = document.createElement("audio");
+const bgm = document.createElement("audio");
+const breakSound = document.createElement("audio");
+const drop = document.createElement("audio");
 let rotatedShape;
 
-//bgm.setAttribute("src", "./assets/bgm.mp3");
-//bgm.muted = true;
+bgm.setAttribute("src", "./assets/bgm.mp3");
+bgm.muted = true;
 
-/*breakSound.setAttribute("src", "./assets/break.mp3");
+breakSound.setAttribute("src", "./assets/break.mp3");
 breakSound.muted = true;
 
 drop.setAttribute("src", "./assets/drop.mp3");
 drop.muted = true;
-*/
 
 // init board
 for (let row = 0; row < BOARD_HEIGHT; row++) {
@@ -292,10 +291,8 @@ function moveTetromino(direction) {
   moveGhostTetromino();
 }
 
-/*
 drawTetromino();
 setInterval(moveTetromino, 500);
-*/
 
 document.addEventListener("keydown", handleKeyPress);
 
@@ -313,7 +310,7 @@ function handleKeyPress(event) {
     case 38: // up arrow
       rotateTetromino();
       break;
-    case 32: // space bar
+    case 32: // up arrow
       dropTetromino();
       break;
     default:
@@ -401,23 +398,3 @@ function moveGhostTetromino() {
 
   drawGhostTetromino();
 }
-
-// Function to start the game
-function startGame() {
-    // Current tetromino
-    let currentTetromino = randomTetromino();
-    let currentGhostTetromino;
-    drawTetromino();
-    setInterval(moveTetromino, 500);
-
-    // Add event listener for key presses
-    document.addEventListener("keydown", handleKeyPress);
-
-    // Play background music
-    bgm.play();
-    bgm.muted = false;
-    drop.muted = false;
-}
-
-// Add event listener to the "Start Game" button
-document.getElementById("startButton").addEventListener("click", startGame);
