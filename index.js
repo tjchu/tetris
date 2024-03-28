@@ -394,15 +394,19 @@ for (let row = 0; row < BOARD_HEIGHT; row++) {
 // Game status setup
 let gameStarted = false;
 const startGameButtonText = "Start Game";
-const gameButton = document.getElementById("game-control");
+const gameButton = document.getElementById("game-btn");
 gameButton.innerHTML = startGameButtonText;
-gameButton.addEventListener("click", () => (alert("game started!")));
+gameButton.addEventListener("click", () => {
+  gameStarted = true;
+});
 
-// Current tetromino
 let currentTetromino = randomTetromino();
 let currentGhostTetromino;
 
-drawTetromino();
-//setInterval(moveTetromino, 1000);
-
-document.addEventListener("keydown", handleKeyPress);
+if (gameStarted) {
+  console.log("here");
+  // Current tetromino
+  drawTetromino();
+  setInterval(moveTetromino, 1000);
+  document.addEventListener("keydown", handleKeyPress);
+}
