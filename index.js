@@ -1,21 +1,3 @@
-// Game board setup
-const BOARD_WIDTH = 10;
-const BOARD_HEIGHT = 20;
-const board = [];
-const bgm = document.createElement("audio");
-const breakSound = document.createElement("audio");
-const drop = document.createElement("audio");
-let rotatedShape;
-
-bgm.setAttribute("src", "./assets/bgm.mp3");
-bgm.muted = true;
-
-breakSound.setAttribute("src", "./assets/break.mp3");
-breakSound.muted = true;
-
-drop.setAttribute("src", "./assets/drop.mp3");
-drop.muted = true;
-
 // Tetrominoes
 const tetrominoes = [
   {
@@ -383,7 +365,25 @@ function moveGhostTetromino() {
   drawGhostTetromino();
 }
 
-// init board
+// Game board setup
+const BOARD_WIDTH = 10;
+const BOARD_HEIGHT = 20;
+const board = [];
+const bgm = document.createElement("audio");
+const breakSound = document.createElement("audio");
+const drop = document.createElement("audio");
+let rotatedShape;
+
+bgm.setAttribute("src", "./assets/bgm.mp3");
+bgm.muted = true;
+
+breakSound.setAttribute("src", "./assets/break.mp3");
+breakSound.muted = true;
+
+drop.setAttribute("src", "./assets/drop.mp3");
+drop.muted = true;
+
+// Init board
 for (let row = 0; row < BOARD_HEIGHT; row++) {
   board[row] = [];
   for (let col = 0; col < BOARD_WIDTH; col++) {
@@ -391,11 +391,18 @@ for (let row = 0; row < BOARD_HEIGHT; row++) {
   }
 }
 
+// Game status setup
+let gameStarted = false;
+const startGameButtonText = "Start Game";
+const gameButton = document.getElementById("game-control");
+gameButton.innerHTML = startGameButtonText;
+gameButton.addEventListener("click", () => (alert("game started!")));
+
 // Current tetromino
 let currentTetromino = randomTetromino();
 let currentGhostTetromino;
 
 drawTetromino();
-setInterval(moveTetromino, 500);
+//setInterval(moveTetromino, 1000);
 
 document.addEventListener("keydown", handleKeyPress);

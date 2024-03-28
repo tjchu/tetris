@@ -13,6 +13,12 @@ body {
   margin: 0 auto 20px;
 }
 
+#game-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 #game_board {
   width: 240px;
   height: 480px;
