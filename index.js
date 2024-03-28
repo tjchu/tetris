@@ -319,11 +319,11 @@ function handleKeyPress(event) {
 }
 
 // sound init
-document.body.addEventListener("click", () => {
+/*document.body.addEventListener("click", () => {
   bgm.play();
   bgm.muted = false;
   drop.muted = false;
-});
+});*/
 
 function dropTetromino() {
   let row = currentTetromino.row;
