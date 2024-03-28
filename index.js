@@ -16,14 +16,6 @@ breakSound.muted = true;
 drop.setAttribute("src", "./assets/drop.mp3");
 drop.muted = true;
 
-// init board
-for (let row = 0; row < BOARD_HEIGHT; row++) {
-  board[row] = [];
-  for (let col = 0; col < BOARD_WIDTH; col++) {
-    board[row][col] = 0;
-  }
-}
-
 // Tetrominoes
 const tetrominoes = [
   {
@@ -82,10 +74,6 @@ function randomTetromino() {
     col: Math.floor(Math.random() * (BOARD_WIDTH - tetromino.shape[0].length + 1)),
   };
 }
-
-// Current tetromino
-let currentTetromino = randomTetromino();
-let currentGhostTetromino;
 
 // Draw tetromino
 function drawTetromino() {
@@ -291,10 +279,6 @@ function moveTetromino(direction) {
   moveGhostTetromino();
 }
 
-drawTetromino();
-setInterval(moveTetromino, 500);
-
-document.addEventListener("keydown", handleKeyPress);
 
 function handleKeyPress(event) {
   switch (event.keyCode) {
@@ -398,3 +382,20 @@ function moveGhostTetromino() {
 
   drawGhostTetromino();
 }
+
+// init board
+for (let row = 0; row < BOARD_HEIGHT; row++) {
+  board[row] = [];
+  for (let col = 0; col < BOARD_WIDTH; col++) {
+    board[row][col] = 0;
+  }
+}
+
+// Current tetromino
+let currentTetromino = randomTetromino();
+let currentGhostTetromino;
+
+drawTetromino();
+setInterval(moveTetromino, 500);
+
+document.addEventListener("keydown", handleKeyPress);
