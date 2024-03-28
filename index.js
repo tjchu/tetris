@@ -175,7 +175,7 @@ function lockTetromino() {
 function clearRows() {
   let rowsCleared = 0;
 
-  // 아래에서부터 검사하면서 완전한 줄을 찾아서 지웁니다.
+  // Scan from the bottom to find complete lines and erase them.
   for (let y = BOARD_HEIGHT - 1; y >= 0; y--) {
     let rowFilled = true;
 
